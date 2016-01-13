@@ -1,13 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-
   <groupId>es.egc</groupId>
-  <artifactId>47394785L</artifactId>
-  <version>3.0-SNAPSHOT</version>
+  <artifactId>proy3</artifactId>
+  <version>1.5</version>
   <packaging>jar</packaging>
 
-  <name>ex2</name>
+  <name>proy3</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -21,17 +17,43 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-	
-	<dependency>
+<dependency>
      <groupId>log4j</groupId>
      <artifactId>log4j</artifactId>
      <version>1.2.17</version>
-     <scope>runtime</scope>
-	 
+     <scope>compile</scope>
 </dependency>
-</dependencies>
 
+  </dependencies>
+<profiles>
+<profile>
+<id> prof-1 </id>
+<activation>
+	 <os>
+		<family>windows</family>
+	 </os>
+     </activation>
 <build>
+ 
+	<plugins>
+  		<!-- Make this jar executable -->
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-jar-plugin</artifactId>
+			<configuration>
+<!--Pluging configuration -->
+			 <archive>
+				<manifest>
+					<!-- Jar file entry point -->
+					<mainClass>${project.groupId}.App</mainClass>
+					<addClasspath>true</addClasspath>
+					<classpathPrefix> dependencias/</classpathPrefix>
+				</manifest>
+			  </archive>
+			</configuration>
+
+		</plugin>
+
 <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
@@ -50,19 +72,6 @@
           </execution>
         </executions>
       </plugin>
-	  
-	  
-	<plugin>
-   <groupId>org.apache.maven.plugins</groupId>
-   <artifactId>maven-surefire-plugin</artifactId>
-   <version>2.19.1</version>
-   <scope>test</scope>
-   <configuration>
-   <!--Pluging configuration -->
-    <reportsDirectory>${project.build.directory}/reportesTests</reportsDirectory>
-    <printSummary>false</printSummary>
-   </configuration>
-  </plugin>
 	</plugins>
   </build>
 <distributionManagement>
@@ -73,4 +82,17 @@
     </repository>
 </distributionManagement>
 
+</profile>
+
+
+
+
+
+
+
+
+
+
+
+</profiles>
 </project>
