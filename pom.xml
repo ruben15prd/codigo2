@@ -1,9 +1,14 @@
-  <groupId>es.egc</groupId>
-  <artifactId>proy3</artifactId>
-  <version>1.5</version>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+ <modelVersion>4.0.0</modelVersion> 
+ 
+ <groupId>es.egc</groupId>
+  <artifactId>47394785L</artifactId>
+  <version>3.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>proy3</name>
+  <name>ex2</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -21,7 +26,7 @@
      <groupId>log4j</groupId>
      <artifactId>log4j</artifactId>
      <version>1.2.17</version>
-     <scope>compile</scope>
+     <scope>runtime</scope>
 </dependency>
 
   </dependencies>
@@ -36,23 +41,7 @@
 <build>
  
 	<plugins>
-  		<!-- Make this jar executable -->
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-jar-plugin</artifactId>
-			<configuration>
-<!--Pluging configuration -->
-			 <archive>
-				<manifest>
-					<!-- Jar file entry point -->
-					<mainClass>${project.groupId}.App</mainClass>
-					<addClasspath>true</addClasspath>
-					<classpathPrefix> dependencias/</classpathPrefix>
-				</manifest>
-			  </archive>
-			</configuration>
-
-		</plugin>
+		
 
 <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -78,7 +67,7 @@
     <repository>
       <id> idRepo</id>
       <name> nombreRepo</name>
-      <url> file:\\D:\Descargas\Despliegue </url>
+      <url> file:\\${project.build.directory} </url>
     </repository>
 </distributionManagement>
 
