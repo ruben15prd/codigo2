@@ -67,7 +67,7 @@
     <repository>
       <id> idRepo</id>
       <name> nombreRepo</name>
-      <url> file:\\${project.build.directory} </url>
+      <url> file:\\${project.build.directory}/target/despliegue_temporal </url>
     </repository>
 </distributionManagement>
 
